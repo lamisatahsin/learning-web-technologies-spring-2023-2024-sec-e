@@ -1,0 +1,30 @@
+<table>
+    <line sr="1">
+        <SL_NO>23</SL_NO>
+        <NAME>John Carter</NAME>
+        <Admission_date>
+            <date>25</date>
+            <month>12</month>
+            <year>2015</year>
+        </Admission_date>
+    </line>
+        <line sr="2">
+        <SL_NO>29</SL_NO>
+        <NAME>Bob Marshal</NAME>
+        <Admission_date>
+            <date>13</date>
+            <month>01</month>
+            <year>1999</year>
+        </Admission_date>
+    </line>
+        
+        <line sr="3">
+        <SL_NO>35</SL_NO>
+        <NAME>Clark Keng</NAME>
+        <Admission_date>
+            <date>17</date>
+            <month>06</month>
+            <year>2005</year>
+        </Admission_date>
+    </line>
+</table>

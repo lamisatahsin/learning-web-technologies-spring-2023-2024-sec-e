@@ -1,0 +1,45 @@
+<table>
+    <line sr="1">
+     
+        <NAME>John Doe</NAME>
+        <Address>
+        <flate_n0></flate_n0>
+        <house_no>38</house_no>
+        <road_no>3</road_no>
+        <area>Banani</area>
+        <district>Dhaka</district>
+        
+       </Address>
+       <Department>Sales</Department>
+    
+        <Salary>$20,000</Salary>
+    </line>
+        <line sr="2">
+        <NAME>Mark Zukerburg</NAME>
+        <Address>
+        <flate_n0>A/1</flate_n0>
+        <house_no>20</house_no>
+        <road_no>18</road_no>
+        <area>Mirpur</area>
+        <district>Dhaka</district>
+        
+       </Address>
+         <Department>Accounts</Department>
+         <Salary>$12,000</Salary>
+     
+        </line>
+        <line sr="3">
+         <NAME>Al Voski</NAME>
+        <Address>
+        <flate_n0></flate_n0>
+        <house_no>38</house_no>
+        <road_no>13</road_no>
+        <area>Mtijheel</area>
+        <district></district>
+        
+       </Address>
+         <Department>Human Resource</Department>
+         <Salary>$30,000</Salary>
+        
+    </line>
+</table>
