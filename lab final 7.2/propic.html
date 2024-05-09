@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Picture</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Profile Picture</legend>
+        User ID: <input type="text" id="userId">
+        <span id="userIdError" class="error"></span><br><br>
+
+        Picture: <input type="file" id="picture">
+        <span id="pictureError" class="error"></span><br><br>
+        <hr>
+        <button type="button" onclick="validateForm()">Submit</button>
+    </fieldset>
+
+    <script>
+        function validateForm() {
+            let userIdInput = document.getElementById('userId');
+            let pictureInput = document.getElementById('picture');
+            let userIdError = document.getElementById('userIdError');
+            let pictureError = document.getElementById('pictureError');
+            let userId = userIdInput.value.trim();
+            let picture = pictureInput.value.trim();
+
+            // Reset error messages
+            userIdError.textContent = '';
+            pictureError.textContent = '';
+
+            // Validate user ID
+            if (userId === '') {
+                userIdError.textContent = 'User ID cannot be empty';
+                return;
+            }
+            if (isNaN(userId) || parseInt(userId) <= 0) {
+                userIdError.textContent = 'User ID must be a positive number';
+                return;
+            }
+
+            // Validate picture
+            if (picture === '') {
+                pictureError.textContent = 'Picture cannot be empty';
+                return;
+            }
+
+            // If all validations pass
+            alert('Form submitted successfully');
+            // You can proceed with form submission or further actions here
+        }
+    </script>
+</body>
+</html>

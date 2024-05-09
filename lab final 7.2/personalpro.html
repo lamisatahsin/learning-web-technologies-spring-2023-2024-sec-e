@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Profile</title>
+</head>
+<body>
+    <h2>Person Profile Form</h2>
+
+    <form id="profileForm" onsubmit="return validateForm()">
+        <fieldset>
+            <legend>Name and Email:</legend>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <span id="nameError" class="error"></span><br><br>
+            
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <span id="emailError" class="error"></span><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Gender</legend>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label><br>
+            <span id="genderError" class="error"></span><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Degree</legend>
+            <input type="checkbox" id="ssc" name="degree" value="ssc">
+            <label for="ssc">SSC</label> 
+
+            <input type="checkbox" id="hsc" name="degree" value="hsc">
+            <label for="hsc">HSC</label> 
+
+            <input type="checkbox" id="bsc" name="degree" value="bsc">
+            <label for="bsc">BSc</label>
+            <span id="degreeError" class="error"></span><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Profile Photo:</legend>
+            Picture: <input type="file" id="picture">
+            <span id="pictureError" class="error"></span><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Blank Interface:</legend>
+            <textarea id="blankInterface" name="blankInterface" rows="4" cols="50"></textarea><br>
+        </fieldset>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+    <script>
+        function validateForm() {
+            let nameInput = document.getElementById('name');
+            let name = nameInput.value.trim();
+            let nameError = document.getElementById('nameError');
+
+            // Validation rules
+            let isValid = true;
+
+            if (name === '') {
+                nameError.textContent = 'Name cannot be empty';
+                isValid = false;
+            } else if (!/^[a-zA-Z][a-zA-Z.\- ]+$/.test(name)) {
+                nameError.textContent = 'Invalid format. Name must contain at least two words';
+                isValid = false;
+            } else {
+                nameError.textContent = ''; 
+            }
+
+            let emailInput = document.getElementById('email');
+            let emailError = document.getElementById('emailError');
+            let email = emailInput.value.trim();
+
+            // Resetting error message
+            emailError.textContent = '';
+
+            // Check if email is empty
+            if (email === '') {
+                emailError.textContent = 'Email cannot be empty';
+                return false;
+            }
+
+            // Check if email is in valid format
+            if (!isValidEmail(email)) {
+                emailError.textContent = 'Please enter a valid email address';
+                return false;
+            }
+
+            
+            alert('Email submitted successfully: ' + email);
+
+            function isValidEmail(email) {
+                let atIndex = email.indexOf('@');
+                let dotIndex = email.lastIndexOf('.');
+
+                
+                return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
+            }
+
+            let genderRadios = document.getElementsByName('gender');
+            let genderError = document.getElementById('genderError');
+            isValid = false;
+
+            for (let i = 0; i < genderRadios.length; i++) {
+                if (genderRadios[i].checked) {
+                    isValid = true;
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                genderError.textContent = 'Please select a gender';
+                return false;
+            } else {
+                genderError.textContent = ''; 
+            }
+
+            let degreeCheckboxes = document.getElementsByName('degree');
+            let degreeError = document.getElementById('degreeError');
+            isValid = false;
+
+            // Loop through checkboxes to check if at least one is checked
+            for (let i = 0; i < degreeCheckboxes.length; i++) {
+                if (degreeCheckboxes[i].checked) {
+                    isValid = true;
+                    break;
+                }
+            }
+
+            if (!isValid) {
+                degreeError.textContent = 'Please select at least one degree';
+                return false;
+            } else {
+                degreeError.textContent = ''; 
+                alert('Degrees submitted successfully');
+            }
+
+            let pictureInput = document.getElementById('picture');
+            let pictureError = document.getElementById('pictureError');
+            let picture = pictureInput.value.trim();
+
+            // Reset error messages
+            pictureError.textContent = '';
+
+            // Validate picture
+            if (picture === '') {
+                pictureError.textContent = 'Picture cannot be empty';
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

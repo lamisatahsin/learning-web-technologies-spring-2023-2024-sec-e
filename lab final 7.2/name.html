@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name</title>
+</head>
+<body>
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        <span id="nameError" class="error"></span><br><br>
+        <button type="button" onclick="validateName()">Submit</button>
+    </form>
+
+    <script>
+        function validateName() {
+            let nameInput = document.getElementById('name');
+            let name = nameInput.value.trim();
+            let nameError = document.getElementById('nameError');
+
+            // Validation rules
+            let isValid = true;
+
+            if (name === '') {
+                nameError.textContent = 'Name cannot be empty';
+                isValid = false;
+            } else if (!/^[a-zA-Z][a-zA-Z.\- ]+$/.test(name)) {
+                nameError.textContent = 'Invalid format. Name must contain at least two words';
+                isValid = false;
+            } else {
+                nameError.textContent = ''; 
+            }
+
+        
+            if (isValid) {
+                alert('Name "' + name + '" submitted');
+               
+            }
+        }
+    </script>
+</body>
+</html>

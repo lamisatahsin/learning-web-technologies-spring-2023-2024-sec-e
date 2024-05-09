@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email</title>
+</head>
+<body>
+    <form>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+        <span id="emailError" class="error"></span><br><br>
+        <button type="button" onclick="validateEmail()">Submit</button>
+    </form>
+
+    <script>
+        function validateEmail() {
+            let emailInput = document.getElementById('email');
+            let emailError = document.getElementById('emailError');
+            let email = emailInput.value.trim();
+
+            // Resetting error message
+            emailError.textContent = '';
+
+            // Check if email is empty
+            if (email === '') {
+                emailError.textContent = 'Email cannot be empty';
+                return;
+            }
+
+            // Check if email is in valid format
+            if (!isValidEmail(email)) {
+                emailError.textContent = 'Please enter a valid email address';
+                return;
+            }
+
+            // If all validation passes, display success message
+            alert('Email submitted successfully: ' + email);
+        }
+
+        function isValidEmail(email) {
+            let atIndex = email.indexOf('@');
+            let dotIndex = email.lastIndexOf('.');
+
+            // Check if '@' and '.' are present and the dot is after '@'
+            return atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1;
+        }
+    </script>
+</body>
+</html>
